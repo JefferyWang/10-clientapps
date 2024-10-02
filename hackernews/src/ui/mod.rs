@@ -19,6 +19,8 @@ pub enum CommentsState {
 pub fn App() -> Element {
     use_context_provider(|| Signal::new(CommentsState::Unset));
     rsx! {
+        link { rel: "stylesheet", href: "tailwind.css" },
+        link { rel: "stylesheet", href: "main.css" },
         main { class: "flex w-full h-full shadow-lg rounded-3xl",
             section { class: "flex flex-col w-4/12 h-full pt-3 overflow-y-scroll bg-gray-50",
                 Stories {}
