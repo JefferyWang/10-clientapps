@@ -1,10 +1,12 @@
 #![allow(non_snake_case)]
 
 mod comments;
+mod send;
 mod stories;
 
 use comments::Comments;
 use dioxus::prelude::*;
+use send::SendBox;
 use stories::Stories;
 
 use crate::StoryData;
@@ -28,6 +30,9 @@ pub fn App() -> Element {
             section { class: "flex flex-col w-8/12 px-4 bg-white rounded-r-3xl",
                 section {
                     Comments {}
+                }
+                section {
+                    SendBox {}
                 }
             }
         }
