@@ -1,6 +1,8 @@
 #![allow(non_snake_case)]
 
 mod comments;
+mod footer;
+mod head;
 mod send;
 mod stories;
 
@@ -23,18 +25,24 @@ pub fn App() -> Element {
     rsx! {
         link { rel: "stylesheet", href: "tailwind.css" },
         link { rel: "stylesheet", href: "main.css" },
-        main { class: "flex w-full h-full shadow-lg rounded-3xl",
-            section { class: "flex flex-col w-4/12 h-full pt-3 overflow-y-scroll bg-gray-50",
-                Stories {}
-            }
-            section { class: "flex flex-col w-8/12 px-4 bg-white rounded-r-3xl",
-                section {
-                    Comments {}
+        div { class: "flex flex-col w-full h-screen bg-gray-100",
+            head::Head {}
+
+            main { class: "flex w-full h-full shadow-lg rounded-3xl",
+                section { class: "flex flex-col w-4/12 h-full pt-3 overflow-y-scroll bg-gray-50",
+                    Stories {}
                 }
-                section {
-                    SendBox {}
+                section { class: "flex flex-col w-8/12 px-4 bg-white rounded-r-3xl",
+                    section {
+                        Comments {}
+                    }
+                    section {
+                        SendBox {}
+                    }
                 }
             }
+
+            footer::Footer {}
         }
     }
 }
